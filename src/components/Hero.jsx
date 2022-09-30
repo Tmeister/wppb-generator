@@ -7,12 +7,12 @@ export function Hero() {
   const [data, setData] = useState({
     pluginName: 'WordPress Plugin Boilerplate',
     pluginSlug: 'plugin-slug',
-    pluginUri: 'http://example.com/plugin-name-uri/',
+    pluginUri: 'example.com/plugin-name-uri',
     pluginDescription:
       "This is a short description of what the plugin does. It's displayed in the WordPress admin area.",
     authorName: 'Your Name or Your Company',
     authorEmail: 'me@example.com.',
-    authorUri: 'http://example.com',
+    authorUri: 'example.com',
   })
   const updateData = (newData) => {
     setData({ ...data, ...newData })
