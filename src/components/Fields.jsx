@@ -22,10 +22,11 @@ export function TextField({
   placeholder,
   callback,
   defaultValue,
+  className,
   ...props
 }) {
   return (
-    <div className={props.className}>
+    <div className={className}>
       {label && <Label id={id}>{label}</Label>}
       <input
         placeholder={placeholder}
@@ -33,6 +34,7 @@ export function TextField({
         id={id}
         defaultValue={defaultValue}
         {...register(name, { onChange: (e) => callback(name, e) })}
+        {...props}
       />
       {error && !alternative && <span className="mt-2 inline-block text-xs text-red-600">{error.message}</span>}
     </div>
