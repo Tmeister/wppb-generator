@@ -98,6 +98,8 @@ export default function Form(props) {
               id="plugin-uri"
               name="pluginUri"
               type="text"
+              autoCorrect="off"
+              autoCapitalize="none"
               alternative={true}
               register={register}
               error={errors.pluginUri}
@@ -144,6 +146,8 @@ export default function Form(props) {
               name="authorUri"
               type="text"
               placeholder="Author URL"
+              autoCorrect="off"
+              autoCapitalize="none"
               alternative={true}
               register={register}
               error={errors.authorUri}
