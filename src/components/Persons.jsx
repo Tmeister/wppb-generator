@@ -28,7 +28,7 @@ export function Persons() {
       <Container>
         <div className="mx-auto max-w-7xl">
           <h2 className="text-center text-3xl tracking-tight text-slate-900 sm:text-4xl">
-            Wordpress plugin boilerplate developers
+            WordPress plugin boilerplate developers
           </h2>
           <div className="mx-auto mt-20 px-4 text-lg tracking-tight text-slate-500 sm:px-6 md:max-w-2xl md:px-4 lg:max-w-5xl lg:px-12">
             <ul
