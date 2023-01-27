@@ -11,7 +11,8 @@ var path = require('path')
 var fs = require('fs-extra')
 var util = require('util')
 var extractZip = require('./zip').extractZip
-var cwd = '/tmp'
+var os = require('os')
+var cwd = os.tmpdir()
 
 function GithubDownloader (user, repo, ref, dir) {
   this.user = user

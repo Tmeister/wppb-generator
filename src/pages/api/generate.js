@@ -4,13 +4,14 @@ import ua from 'universal-analytics'
 import replace from 'replace'
 import fs from 'fs-extra'
 import { EasyZip  } from 'easy-zip'
+import os from 'os'
 // Local Libs
 import ghdownload from '../../lib/github-download'
 import getDefaultValues from '../../lib/get-default-values'
 import walker from '../../lib/walker'
 
 const visitor = ua('UA-56742268-1')
-const tmpFolder = '/tmp'
+const tmpFolder = os.tmpdir()
 const source = path.join(tmpFolder, 'source')
 
 let destination
