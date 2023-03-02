@@ -57,12 +57,13 @@ export default function Form(props) {
     a.click()
     reset()
     setLoading(false)
+    props.onSubmit()
   }
 
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className=" mb-10 w-full space-y-5 divide-y divide-slate-200 rounded-lg border border-slate-200 px-10 py-5 shadow-lg lg:mb-0 lg:mr-10 lg:w-6/12"
+      className="mb-10 w-full space-y-5 divide-y divide-slate-200 rounded-lg border border-slate-200 px-10 py-5 shadow-lg lg:mb-0 lg:mr-10 lg:w-6/12"
     >
       <div className="space-y-8">
         <div className="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
@@ -171,12 +172,12 @@ export default function Form(props) {
       <div className="flex justify-end pt-5">
         <button
           type="submit"
-          className="inline-flex cursor-pointer items-center justify-center rounded-md border border-transparent bg-blue-600 py-3 px-8 font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:bg-slate-400"
+          className="inline-flex cursor-pointer items-center justify-center rounded-md border border-transparent bg-blue-600 px-8 py-3 font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:bg-slate-400"
           disabled={loading}
         >
           {loading && (
             <svg
-              className="-ml-1 mr-3 h-5 w-5 animate-spin text-white"
+              className="mr-3 -ml-1 h-5 w-5 animate-spin text-white"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"

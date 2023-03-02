@@ -1,10 +1,12 @@
 import Link from 'next/link'
+import Image from 'next/image'
+import buymeacoffee from '@/images/buy-me-a-coffee.png'
 
 export function PluginPreview(props) {
   return (
     <section className="w-full lg:w-6/12">
       <div className="rounded-lg border border-slate-200 shadow-lg">
-        <header className=" flex items-center rounded-t-lg border-b bg-slate-50 px-10 py-5 text-slate-600">
+        <header className="flex items-center rounded-t-lg border-b bg-slate-50 px-10 py-5 text-slate-600">
           <div className="h-6 w-6 rounded border border-slate-300 bg-white"></div>
           <div className="ml-3 font-semibold ">Plugin</div>
         </header>
@@ -30,10 +32,17 @@ export function PluginPreview(props) {
             </Link>
           </div>
           <div>
-            <p className=" mt-5 cursor-pointer text-sm text-blue-600">Enable auto-updates</p>
+            <p className="mt-5 cursor-pointer text-sm text-blue-600 ">Enable auto-updates</p>
           </div>
         </main>
       </div>
+      {props.showBuyMeACoffe && (
+        <div className="relative mt-10 flex justify-center">
+          <Link href="https://www.buymeacoffee.com/tmeister" rel="noopener noreferrer" target="_blank">
+            <Image width={250} height={70} src={buymeacoffee} alt="Buy Me a Coffee" />
+          </Link>
+        </div>
+      )}
     </section>
   )
 }

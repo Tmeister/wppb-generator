@@ -4,7 +4,7 @@ import { PluginPreview } from './PluginPreview'
 import { useState } from 'react'
 
 export function Hero() {
-  const [data, setData] = useState({
+  const defaultFormData = {
     pluginName: 'WordPress Plugin Boilerplate',
     pluginSlug: 'plugin-slug',
     pluginUri: 'example.com/plugin-name-uri',
@@ -13,9 +13,18 @@ export function Hero() {
     authorName: 'Your Name or Your Company',
     authorEmail: 'me@example.com.',
     authorUri: 'example.com',
-  })
+  }
+
+  const [data, setData] = useState(defaultFormData)
+  const [showBuyMeACoffe, setShowBuyMeACoffe] = useState(false)
+
   const updateData = (newData) => {
     setData({ ...data, ...newData })
+  }
+
+  const onSubmit = () => {
+    setData(defaultFormData)
+    setShowBuyMeACoffe(true)
   }
 
   return (
@@ -39,8 +48,8 @@ export function Hero() {
         Type your plugin details in the form below, and a zip file will be generated for you.
       </p>
       <div className="mt-16 lg:flex">
-        <Form updateData={updateData} />
-        <PluginPreview data={data} />
+        <Form updateData={updateData} onSubmit={onSubmit} />
+        <PluginPreview data={data} showBuyMeACoffe={showBuyMeACoffe} />
       </div>
     </Container>
   )
