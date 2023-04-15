@@ -3,7 +3,8 @@ import path from 'path'
 import ua from 'universal-analytics'
 import replace from 'replace'
 import fs from 'fs-extra'
-import { EasyZip } from 'easy-zip'
+import archiver from 'archiver'
+
 // Local Libs
 import ghdownload from '../../lib/github-download'
 import getDefaultValues from '../../lib/get-default-values'
@@ -57,92 +58,96 @@ const replaceStrings = (req, res) => {
         return
       }
 
-      // // Theme URI
-      // replace({
-      //   regex: 'https://frostwp.com/',
-      //   replacement: uri,
-      //   paths: [destination],
-      //   recursive: true,
-      //   silent: true,
-      // })
+      // Theme URI
+      replace({
+        regex: 'https://frostwp.com/',
+        replacement: uri,
+        paths: [destination],
+        recursive: true,
+        silent: true,
+      })
 
-      // // Author URI
-      // replace({
-      //   regex: 'https://wpengine.com/',
-      //   replacement: authorURI,
-      //   paths: [destination],
-      //   recursive: true,
-      //   silent: true,
-      // })
+      // Author URI
+      replace({
+        regex: 'https://wpengine.com/',
+        replacement: authorURI,
+        paths: [destination],
+        recursive: true,
+        silent: true,
+      })
 
-      // // Theme Name
-      // replace({
-      //   regex: 'Frost',
-      //   replacement: name,
-      //   paths: [destination],
-      //   recursive: true,
-      //   silent: true,
-      // })
+      // Theme Name
+      replace({
+        regex: 'Frost',
+        replacement: name,
+        paths: [destination],
+        recursive: true,
+        silent: true,
+      })
 
-      // // Theme Description
-      // replace({
-      //   regex:
-      //     'With its clean, minimal design and powerful feature set, Frost enables agencies to build stylish and sophisticated WordPress websites.',
-      //   replacement: description,
-      //   paths: [destination],
-      //   recursive: true,
-      //   silent: true,
-      // })
+      // Theme Description
+      replace({
+        regex:
+          'With its clean, minimal design and powerful feature set, Frost enables agencies to build stylish and sophisticated WordPress websites.',
+        replacement: description,
+        paths: [destination],
+        recursive: true,
+        silent: true,
+      })
 
-      // // Theme Author CSS
-      // replace({
-      //   regex: 'Author: WP Engine',
-      //   replacement: `Author: ${author}`,
-      //   paths: [destination],
-      //   recursive: true,
-      //   silent: true,
-      // })
+      // Theme Author CSS
+      replace({
+        regex: 'Author: WP Engine',
+        replacement: `Author: ${author}`,
+        paths: [destination],
+        recursive: true,
+        silent: true,
+      })
 
-      // // Theme Author PHP
-      // replace({
-      //   regex: '@author  WP Engine',
-      //   replacement: `@author ${author}`,
-      //   paths: [destination],
-      //   recursive: true,
-      //   silent: true,
-      // })
+      // Theme Author PHP
+      replace({
+        regex: '@author  WP Engine',
+        replacement: `@author ${author}`,
+        paths: [destination],
+        recursive: true,
+        silent: true,
+      })
 
-      // // Theme Package Name
-      // replace({
-      //   regex: '@package Frost',
-      //   replacement: `@package ${packageName}`,
-      //   paths: [destination],
-      //   recursive: true,
-      //   silent: true,
-      // })
+      // Theme Package Name
+      replace({
+        regex: '@package Frost',
+        replacement: `@package ${packageName}`,
+        paths: [destination],
+        recursive: true,
+        silent: true,
+      })
 
-      // // All other `frost` references
-      // replace({
-      //   regex: 'frost',
-      //   replacement: `${slug}`,
-      //   paths: [destination],
-      //   recursive: true,
-      //   silent: true,
-      // })
+      // All other `frost` references
+      replace({
+        regex: 'frost',
+        replacement: `${slug}`,
+        paths: [destination],
+        recursive: true,
+        silent: true,
+      })
 
       generateZip(res, destination)
     })
   })
 }
 
+// TODO Move to a unique file
 const generateZip = (res, source) => {
-  console.log(`Generating Zip ${source} to ${zipName}.zip`)
-  const zip = new EasyZip()
-  console.log(`Zipping ${source} to ${zipName}.zip`)
+  res.setHeader('Content-Type', 'application/zip')
+  res.setHeader('Content-Disposition', `attachment; filename=${zipName}.zip`)
 
-  zip.zipFolder(source, function () {
-    zip.writeToResponse(res, `${zipName}.zip`)
+  const archive = archiver('zip', {
+    zlib: { level: 9 },
   })
+
+  archive.pipe(res)
+  archive.directory(source, `${zipName}`)
+  archive.finalize()
 }
 
 export default function handler(req, res) {

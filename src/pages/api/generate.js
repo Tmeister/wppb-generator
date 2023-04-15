@@ -3,7 +3,8 @@ import path from 'path'
 import ua from 'universal-analytics'
 import replace from 'replace'
 import fs from 'fs-extra'
-import { EasyZip  } from 'easy-zip'
+import archiver from 'archiver'
+
 // Local Libs
 import ghdownload from '../../lib/github-download'
 import getDefaultValues from '../../lib/get-default-values'
@@ -53,7 +54,7 @@ const replaceStrings = (req, res) => {
   visitor.event('build', 'click', 'download', 1).send()
   destination = path.join(tmpFolder, `${pluginSlug}-${new Date().getTime()}`)
   zipName = pluginSlug
-  
+
   fs.copy(source, destination, (err) => {
     if (err) {
       console.error(err)
@@ -181,13 +182,19 @@ const replaceStrings = (req, res) => {
   })
 }
 
+// TODO Move to a unique file
 const generateZip = (res, pluginSource) => {
-  const zip = new EasyZip()
-  console.log(`Zipping ${pluginSource} to ${zipName}.zip`)
 
-  zip.zipFolder(pluginSource, function () {
-    zip.writeToResponse(res, zipName)
+  res.setHeader('Content-Type', 'application/zip')
+  res.setHeader('Content-Disposition', `attachment; filename=${zipName}.zip`)
+
+  const archive = archiver('zip', {
+    zlib: { level: 9 },
   })
+
+  archive.pipe(res)
+  archive.directory(pluginSource, `${zipName}`)
+  archive.finalize()
 }
 
 export default function handler(req, res) {

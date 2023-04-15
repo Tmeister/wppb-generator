@@ -44,6 +44,7 @@ export default function Form(props) {
 
     console.log(data)
     const response = await fetch('/api/generate-frost', { method: 'POST', body: JSON.stringify(data) })
+    console.log(response)
     const blob = await response.blob()
     // Hacky wat to force the download
     const a = document.createElement('a')
