@@ -15,7 +15,10 @@ export default function Frost() {
           name="description"
           content="Frost starter theme generator, Stop wasting time searching and replacing text strings manually"
         />
-        <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large" />
+        <meta
+          name="robots"
+          content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large"
+        />
         <link rel="canonical" href="https://wppb.me/Frost" />
         <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="website" />
@@ -28,7 +31,10 @@ export default function Frost() {
         <meta property="og:site_name" content="Frost Started Theme Generator" />
         <meta property="og:updated_time" content="2020-03-27T18:28:44-06:00" />
         <meta property="og:image" content="https://mugshotbot.com/m/mlqFqFjl" />
-        <meta property="og:image:secure_url" content="https://mugshotbot.com/m/mlqFqFjl" />
+        <meta
+          property="og:image:secure_url"
+          content="https://mugshotbot.com/m/mlqFqFjl"
+        />
         <meta property="og:image:alt" content="Frost Started Theme Generator" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Frost Stater Theme Generator" />
@@ -36,7 +42,10 @@ export default function Frost() {
           name="twitter:description"
           content="Frost starter theme generator, Stop wasting time searching and replacing text strings manually"
         />
-        <meta name="twitter:image" content="https://mugshotbot.com/m/mlqFqFjl" />
+        <meta
+          name="twitter:image"
+          content="https://mugshotbot.com/m/mlqFqFjl"
+        />
       </Head>
       <Header />
       <main>
