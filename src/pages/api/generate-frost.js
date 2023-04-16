@@ -76,20 +76,20 @@ const replaceStrings = (req, res) => {
         silent: true,
       })
 
-      // Theme Name
-      replace({
-        regex: 'Frost',
-        replacement: name,
-        paths: [destination],
-        recursive: true,
-        silent: true,
-      })
-
       // Theme Description
       replace({
         regex:
           'With its clean, minimal design and powerful feature set, Frost enables agencies to build stylish and sophisticated WordPress websites.',
         replacement: description,
+        paths: [destination],
+        recursive: true,
+        silent: true,
+      })
+
+      // Theme Name
+      replace({
+        regex: 'Frost',
+        replacement: name,
         paths: [destination],
         recursive: true,
         silent: true,

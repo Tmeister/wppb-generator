@@ -3,6 +3,8 @@ import Head from 'next/head'
 import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
 import { HeroFrost } from '@/components/Frost/Hero'
+import { About } from '@/components/Frost/About'
+import { Affiliates } from '@/components/Affiliates'
 
 export default function Frost() {
   return (
@@ -39,8 +41,10 @@ export default function Frost() {
       <Header />
       <main>
         <HeroFrost />
+        <About />
       </main>
       <Footer />
+      <Affiliates />
     </>
   )
 }

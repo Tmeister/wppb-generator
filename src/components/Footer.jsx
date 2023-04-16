@@ -43,6 +43,15 @@ export function Footer() {
               className="font-semibold text-blue-500"
             >
               Enrique Chávez
+            </Link>{' '}
+            &{' '}
+            <Link
+              href="https://76.digital?utm_source=wp-plugin-boilerplate&utm_medium=referral&utm_campaign=wp-plugin-boilerplate"
+              target="_blank"
+              rel="noreferrer"
+              className="font-semibold text-blue-500"
+            >
+              76 Digital
             </Link>
             .
           </p>

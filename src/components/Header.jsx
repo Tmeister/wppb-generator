@@ -15,14 +15,9 @@ export function Header() {
             </Link>
           </div>
           <div className="flex items-center gap-x-5 md:gap-x-8">
-            <Button
-              href="https://76.digital?utm_source=wp-plugin-boilerplate&utm_medium=referral&utm_campaign=wp-plugin-boilerplate"
-              target="_blank"
-              rel="noreferrer"
-              color="orange"
-            >
-              <span>Powered by 76 Digital</span>
-              <ChevronRightIcon className="ml-2 -mr-1 h-4 w-4" aria-hidden="true" />
+            <Button href="/frost" color="orange">
+              <span>New Frost Theme Generator</span>
+              <ChevronRightIcon className="-mr-1 ml-2 h-4 w-4" aria-hidden="true" />
             </Button>
           </div>
         </nav>
