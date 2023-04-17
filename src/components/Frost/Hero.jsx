@@ -42,7 +42,8 @@ export function HeroFrost() {
         generator.
       </h1>
       <p className="mx-auto mt-10 max-w-3xl text-center text-lg tracking-tight text-slate-500">
-        Type your theme details in the form below, and a zip file will be generated for you.
+        Type your theme details in the form below, and a zip file will be
+        generated for you.
       </p>
       <div className="mt-16 lg:flex">
         <Form updateData={updateData} onSubmit={onSubmit} />

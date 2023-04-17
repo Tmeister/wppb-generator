@@ -1,16 +1,15 @@
 import rimraf from 'rimraf'
 import path from 'path'
-import ua from 'universal-analytics'
 import replace from 'replace'
 import fs from 'fs-extra'
 import archiver from 'archiver'
 
 // Local Libs
-import ghdownload from '../../lib/github-download'
-import getDefaultValues from '../../lib/get-default-values'
-import walker from '../../lib/walker'
+import ghdownload from '@/lib/github-download'
+import getDefaultValues from '@/lib/get-default-values'
+import walker from '@/lib/walker'
+import ga4Track from '@/lib/ga4'
 
-const visitor = ua('UA-56742268-1')
 const tmpFolder = '/tmp'
 const source = path.join(tmpFolder, 'source')
 
@@ -25,7 +24,7 @@ const getZip = (req, res) => {
       repo: 'WordPress-Plugin-Boilerplate',
       ref: 'master',
     },
-    source,
+    source
   )
     .on('error', function (err) {
       console.error(err)
@@ -51,7 +50,12 @@ const replaceStrings = (req, res) => {
   } = getDefaultValues(data)
 
   // Send the data to Google Analytics
-  visitor.event('build', 'click', 'download', 1).send()
+  ga4Track('wppb_build', {
+    event_category: 'build-plugin',
+    event_action: 'click',
+    event_label: 'download',
+  })
+
   destination = path.join(tmpFolder, `${pluginSlug}-${new Date().getTime()}`)
   zipName = pluginSlug
 
@@ -105,9 +109,10 @@ const replaceStrings = (req, res) => {
         silent: true,
       })
 
-       // Plugin Description
-       replace({
-        regex: "This is a short description of what the plugin does. It's displayed in the WordPress admin area.",
+      // Plugin Description
+      replace({
+        regex:
+          "This is a short description of what the plugin does. It's displayed in the WordPress admin area.",
         replacement: pluginDescription,
         paths: [destination + '/' + pluginSlug + '/' + pluginSlug + '.php'],
         recursive: false,
@@ -184,7 +189,6 @@ const replaceStrings = (req, res) => {
 
 // TODO Move to a unique file
 const generateZip = (res, pluginSource) => {
-
   res.setHeader('Content-Type', 'application/zip')
   res.setHeader('Content-Disposition', `attachment; filename=${zipName}.zip`)
 

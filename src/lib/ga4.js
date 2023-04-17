@@ -7,6 +7,8 @@ const GA_API_ENDPOINT = 'https://www.google-analytics.com/mp/collect'
 
 const ga4Track = async (eventName, eventParams) => {
   const clientId = 'wppb-tracker-2023'
+  const url = `${GA_API_ENDPOINT}?measurement_id=${GA_MEASUREMENT_ID}&api_secret=${GA_API_SECRET}`
+
   const eventPayload = {
     client_id: clientId,
     events: [
@@ -21,16 +23,12 @@ const ga4Track = async (eventName, eventParams) => {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'X-Goog-MP-MEASUREMENT-ID': GA_MEASUREMENT_ID,
-      'X-Goog-MP-RECEIVED-CLIENT-ID': clientId,
-      'X-Goog-MP-RECEIVED-API-SECRET': GA_API_SECRET,
     },
     body: JSON.stringify(eventPayload),
   }
 
   try {
-    const response = await fetch(GA_API_ENDPOINT, requestOptions)
-
+    const response = await fetch(url, requestOptions)
     if (response.ok) {
       console.log('Custom event sent successfully.')
     } else {

@@ -1,16 +1,15 @@
 import rimraf from 'rimraf'
 import path from 'path'
-import ua from 'universal-analytics'
 import replace from 'replace'
 import fs from 'fs-extra'
 import archiver from 'archiver'
 
 // Local Libs
-import ghdownload from '../../lib/github-download'
-import getDefaultValues from '../../lib/get-default-values'
-import walker from '../../lib/walker'
+import ghdownload from '@/lib/github-download'
+import getDefaultValues from '@/lib/get-default-values'
+import walker from '@/lib/walker'
+import ga4Track from '@/lib/ga4'
 
-const visitor = ua('UA-56742268-1')
 const tmpFolder = '/tmp'
 const source = path.join(tmpFolder, 'source-frost')
 
@@ -25,7 +24,7 @@ const getZip = (req, res) => {
       repo: 'frost',
       ref: 'trunk',
     },
-    source,
+    source
   )
     .on('error', function (err) {
       console.error(err)
@@ -37,10 +36,16 @@ const getZip = (req, res) => {
 
 const replaceStrings = (req, res) => {
   const data = JSON.parse(req.body)
-  const { name, uri, author, authorURI, description, slug, packageName } = getDefaultValues(data, 'theme')
+  const { name, uri, author, authorURI, description, slug, packageName } =
+    getDefaultValues(data, 'theme')
 
   // Send the data to Google Analytics
-  // visitor.event('build-frost', 'click', 'download', 1).send()
+  ga4Track('wppb_build', {
+    event_category: 'build-frost',
+    event_action: 'click',
+    event_label: 'download',
+  })
+
   destination = path.join(tmpFolder, `${slug}`)
   zipName = slug
 
