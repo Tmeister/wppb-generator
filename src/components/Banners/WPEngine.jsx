@@ -3,7 +3,10 @@ import Image from 'next/image'
 
 export function WPEngine() {
   return (
-    <a href="https://bit.ly/40hPAxM" className="flex items-center space-x-3">
+    <a
+      href="https://76.digital/wp-engine"
+      className="flex items-center space-x-3"
+    >
       <div className="h-20 w-20 flex-shrink-0 border">
         <Image src={wpengine} alt="WP Engine" />
       </div>

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { WPEngine } from './Banners/WPEngine'
 import { WPRocket } from './Banners/WPRocket'
@@ -9,8 +9,13 @@ export function Affiliates() {
   const components = [WPEngine, WPRocket, Crocoblock]
   const index = Math.floor(Math.random() * components.length)
   const SelectedComponent = components[index]
-  const [showAds, setShowAds] = useState(true)
+  const [showAds, setShowAds] = useState(false)
   const handleCloseBtnClick = () => setShowAds(false)
+
+  useEffect(() => {
+    const timer = setTimeout(() => setShowAds(true), 5000)
+    return () => clearTimeout(timer)
+  }, [])
 
   return (
     showAds && (
