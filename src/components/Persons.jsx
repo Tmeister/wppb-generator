@@ -39,16 +39,25 @@ export function Persons() {
                 <li key={person.name} className="sm:py-8">
                   <div className="space-y-4 sm:grid sm:grid-cols-3 sm:items-start sm:gap-6 sm:space-y-0">
                     <div className="aspect-w-3 aspect-h-2 rounded-lg border border-slate-100 shadow-lg sm:aspect-w-3 sm:aspect-h-3">
-                      <Image layout="fill" className="rounded-lg object-cover shadow-lg" src={person.imageUrl} alt="" />
+                      <Image
+                        className="rounded-lg object-cover shadow-lg"
+                        src={person.imageUrl}
+                        alt=""
+                      />
                     </div>
                     <div className="sm:col-span-2">
                       <div className="space-y-4">
                         <div className="space-y-1 font-medium leading-6">
-                          <h3 className="text-xl font-semibold">{person.name}</h3>
+                          <h3 className="text-xl font-semibold">
+                            {person.name}
+                          </h3>
                           <p className="text-slate-400">{person.role}</p>
                         </div>
                         <div className="prose text-lg">
-                          <p className="text-gray-500" dangerouslySetInnerHTML={{ __html: person.bio }}></p>
+                          <p
+                            className="text-gray-500"
+                            dangerouslySetInnerHTML={{ __html: person.bio }}
+                          ></p>
                         </div>
                       </div>
                     </div>
