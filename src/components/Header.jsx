@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
 import { Logo } from '@/components/Logo'
+import { ChevronRightIcon } from '@heroicons/react/24/solid'
 
 export function Header() {
   return (
@@ -14,8 +15,9 @@ export function Header() {
             </Link>
           </div>
           <div className="flex items-center gap-x-5 md:gap-x-8">
-            <Button href="https://github.com/Tmeister/wppb-generator" target="_blank" rel="noreferrer" color="blue">
-              <span>Support the generator</span>
+            <Button href="/frost" color="orange">
+              <span>New Frost Theme Generator</span>
+              <ChevronRightIcon className="-mr-1 ml-2 h-4 w-4" aria-hidden="true" />
             </Button>
           </div>
         </nav>
