@@ -42,6 +42,20 @@ export function About() {
                 for its expertise in managed hosting, eCommerce, and website
                 solutions for businesses and agencies.
               </p>
+              <p>
+                This generator will take the latest{' '}
+                <Link
+                  href="https://github.com/wpengine/frost"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-semibold text-blue-500 underline"
+                >
+                  Frost source code
+                </Link>{' '}
+                and replace all instances of the words <code>Frost</code>,
+                <code>frost</code>, and other theme information in order to get
+                a new, ready-to-use started theme.
+              </p>
             </div>
             <div>
               <Image

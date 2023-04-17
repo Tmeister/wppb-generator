@@ -7,7 +7,7 @@ export function Crocoblock() {
       href="https://76.digital/crocoblock"
       className="flex items-center space-x-3"
     >
-      <div className="h-52 w-52 flex-shrink-0 border">
+      <div className="h-48 w-48 flex-shrink-0 border">
         <Image src={crocoblock} alt="Crocoblock" />
       </div>
     </a>
