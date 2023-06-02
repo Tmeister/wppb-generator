@@ -53,7 +53,6 @@ export default function Frost() {
         <About />
       </main>
       <Footer />
-      <Affiliates />
     </>
   )
 }

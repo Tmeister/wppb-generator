@@ -71,7 +71,6 @@ export default function Home() {
         <Persons />
       </main>
       <Footer />
-      <Affiliates />
     </>
   )
 }
