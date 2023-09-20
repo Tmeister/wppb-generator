@@ -9,7 +9,7 @@ import archiver from 'archiver'
 // Local Libs
 import downloadAndUnzip from '@/lib/downloadAndUnzip'
 import getDefaultValues from '@/lib/getDefaultValues'
-import getFilesInDir from '@/lib/getfilesInDir'
+import getFilesInDir from '@/lib/getFilesInDir'
 import ga4Track from '@/lib/ga4'
 
 const tmpFolder = '/tmp'
