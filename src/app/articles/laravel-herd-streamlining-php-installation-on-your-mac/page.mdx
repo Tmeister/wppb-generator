@@ -1,0 +1,69 @@
+import { ArticleLayout } from '@/components/ArticleLayout'
+import Image from 'next/image'
+import laravelHero from './laravel-herd-hero.jpg'
+
+export const article = {
+  author: 'Enrique Chavez',
+  date: '2023-09-19',
+  title: 'Laravel Herd: Streamlining PHP Installation on Your Mac',
+  description:
+    'Discover the functionalities and benefits of Laravel Herd, the native macOS application designed to streamline Laravel development. From installation to PHP version support and comparison with Laravel Valet, our guide covers everything you need to know to leverage Laravel Herd for an efficient development environment.',
+}
+
+export const metadata = {
+  title: article.title,
+  description: article.description,
+}
+
+export default (props) => <ArticleLayout article={article} {...props} />
+
+<Image src={laravelHero} alt="" />
+
+## What is Laravel Herd?
+
+In the dynamic landscape of Laravel development, **Laravel Herd** emerges as a pivotal tool designed to streamline the setup process for developers. This native macOS application, introduced at [Laracon US](https://laracon.us) in July 2023, is a collaborative effort between [Beyond Code](https://beyondco.de) and [Laravel LLC](https://laravel.com). It stands as a comprehensive solution, incorporating PHP, Nginx, and Dnsmasq to facilitate a seamless local development environment. Compared to [Laravel Valet](https://laravel.com/docs/10.x/valet), Laravel Herd promises an even more straightforward setup, aiming to be an indispensable asset for developers in the Laravel ecosystem.
+
+## How to Install PHP on Your Mac Using Laravel Herd
+
+Embarking on your Laravel Herd installation journey is a straightforward process. Here we delineate the steps to ensure a hassle-free setup:
+
+- **Step 1:** Visit the [official website](https://herd.laravel.com/) to [download Herd](https://herd.laravel.com/download).
+- **Step 2:** Open the downloaded file.
+- **Step 3:** Drag the Laravel Herd application into your /Applications folder, initiating the installation process.
+- **Option:** At this juncture, you have the flexibility to set up from scratch or import your existing Laravel Valet configuration, a feature designed to facilitate a smooth transition for Valet users.
+- **Verification:** Post installation, it is prudent to verify the setup. Execute commands to check the versions of PHP, Laravel, and Composer, confirming the environment is primed for use.
+
+By following this structured pathway, developers can swiftly set up Laravel Herd, paving the way for an efficient development environment.
+
+## What PHP Versions Does Laravel Herd Support?
+
+Laravel Herd extends support for a range of PHP versions, accommodating developments in PHP 7.4 to PHP 8.3. This wide array of compatibility ensures that developers can work with a versatile set of tools and features, enhancing the development process significantly.
+
+## Which PHP Extensions are Included?
+
+Herd includes the following extensions:
+bcmath, bz2, calendar, ctype, curl, dba, dom, exif, ffi, fileinfo, filter, ftp, gd, gmp, iconv, imagick, intl, mbstring, mysqli, opcache, openssl, pcntl, pdo, pdo_mysql, pdo_pgsql, pdo_sqlite, pgsql, phar, posix, readline, redis, session, shmop, simplexml, soap, sockets, sodium, sqlite3, sysvmsg, sysvsem, sysvshm, tokenizer, xml, xmlreader, xmlwriter, zip and zlib.
+
+Xdebug can be [installed manually](https://herd.laravel.com/docs/1/advanced-usage/xdebug) via PECL and Homebrew.
+
+## The Strengths of Laravel Herd Compared to Valet
+
+Laravel Herd stands a notch above Valet, offering an all-encompassing package where everything is bundled together, promising faster and more efficient performance, especially on Apple silicon Mac. This attribute translates to a significant boost in performance, presenting developers with a tool that is not just simple but also optimized for speed.
+
+## The Limitations of Laravel Herd Compared to Valet
+
+Despite its strengths, Laravel Herd comes with its set of limitations. It restricts the installation of PHP versions before PHP 7.4 and does not allow the addition of new PHP extensions. In scenarios where these features are requisite, developers might find it more beneficial to switch to Laravel Valet
+
+## Will There be a Windows or Linux Version?
+
+As of the current development roadmap, there are no plans to extend Laravel Herd support to Windows or Linux platforms. The focus remains steadfast on providing an optimized solution for macOS users, with no foreseeable expansion to other operating systems.
+
+## Conclusion: A WordPress Developer’s Perspective
+
+As a WordPress developer venturing into the Laravel ecosystem, the introduction of **Laravel Herd** comes as a breath of fresh air. The native macOS application promises to streamline the local development process, offering a range of PHP versions and extensions that can potentially enhance the development workflow that we are accustomed to in the WordPress environment.
+
+The straightforward installation process, coupled with the option to import Laravel Valet configurations, can significantly reduce the setup time, allowing us to dive into new development setups with familiar ease. Moreover, the performance optimization specifically for Apple silicon Mac holds the promise of a swift and efficient development experience.
+
+While the tool currently limits itself to the macOS environment and restricts certain functionalities compared to Valet, it opens up a realm of possibilities for WordPress developers looking to expand their horizons.
+
+As we anticipate potential expansions and updates to Laravel Herd, it holds a promising future in becoming a staple tool for developers, not just from the Laravel community but also for WordPress developers keen on diversifying their skill set and exploring new technological landscapes.

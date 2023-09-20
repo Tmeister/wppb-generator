@@ -1,4 +1,5 @@
-import { Container } from '@/components/Container'
+'use client'
+
 import Form from '@/components/Form'
 import { PluginPreview } from './PluginPreview'
 import { useState } from 'react'
@@ -28,8 +29,8 @@ export function Hero() {
   }
 
   return (
-    <Container className="pt-5 pb-16 lg:pt-10">
-      <h1 className="mx-auto max-w-4xl text-center font-display text-5xl font-medium tracking-tight text-slate-900 sm:text-7xl">
+    <>
+      <h1 className="mx-auto max-w-4xl text-center font-display text-5xl font-medium tracking-tight text-slate-900 sm:text-7xl dark:text-white">
         WordPress plugin{' '}
         <span className="relative whitespace-nowrap text-blue-600">
           <svg
@@ -44,13 +45,14 @@ export function Hero() {
         </span>{' '}
         generator.
       </h1>
-      <p className="mx-auto mt-10 max-w-3xl text-center text-lg tracking-tight text-slate-500">
-        Type your plugin details in the form below, and a zip file will be generated for you.
+      <p className="mx-auto mt-10 max-w-3xl text-center text-lg tracking-tight text-slate-500 dark:text-white">
+        Type your plugin details in the form below, and a zip file will be
+        generated for you.
       </p>
       <div className="mt-16 lg:flex">
         <Form updateData={updateData} onSubmit={onSubmit} />
         <PluginPreview data={data} showBuyMeACoffe={showBuyMeACoffe} />
       </div>
-    </Container>
+    </>
   )
 }
