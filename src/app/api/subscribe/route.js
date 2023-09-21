@@ -2,7 +2,7 @@ import MailerLite from '@mailerlite/mailerlite-nodejs'
 
 export async function POST(request) {
   const mailerlite = new MailerLite({
-    api_key: process.env.MAILERLITE_API_KEY,
+    api_key: process.env.NEXT_PUBLIC_MAILERLITE_API_KEY,
   })
 
   const data = await request.json()
@@ -28,7 +28,7 @@ export async function POST(request) {
   // add subscriber to group
   await mailerlite.groups.assignSubscriber(
     userId,
-    process.env.MAILERLITE_GROUP_ID,
+    process.env.NEXT_PUBLIC_MAILERLITE_GROUP_ID,
   )
 
   // Retrun NextResponse
