@@ -32,7 +32,7 @@ export async function POST(request) {
   // Create a zip file
   const zip = await createZip()
   // Track Build
-  trackDownload()
+  await trackDownload()
 
   const zipFile = await fs.readFile(zip)
   // send it as a download
@@ -148,8 +148,8 @@ const replaceStrings = async (request) => {
   })
 }
 
-const trackDownload = () => {
-  ga4Track('wppb_build', {
+const trackDownload = async () => {
+   await ga4Track('wppb_build', {
     event_category: 'build-plugin',
     event_action: 'click',
     event_label: 'download',
