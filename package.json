@@ -13,6 +13,7 @@
     "@headlessui/react": "^1.7.13",
     "@heroicons/react": "^2.0.18",
     "@hookform/resolvers": "^3.3.1",
+    "@mailerlite/mailerlite-nodejs": "^1.1.0",
     "@mapbox/rehype-prism": "^0.8.0",
     "@mdx-js/loader": "^2.3.0",
     "@mdx-js/react": "^2.3.0",

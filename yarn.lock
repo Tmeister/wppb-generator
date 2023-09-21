@@ -1123,6 +1123,13 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
+"@mailerlite/mailerlite-nodejs@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@mailerlite/mailerlite-nodejs/-/mailerlite-nodejs-1.1.0.tgz#845e643ba3808fc09b9a8d414e6cb306686c4e5e"
+  integrity sha512-XwjO7mQJEF97v6cxjPmjmCeOtNC1XSODUlP5DhUyFmeKHWINbDHP3gcmyQ6U1xUHmQiNHSn2Vdy5tUUD3pgdOg==
+  dependencies:
+    axios "^1.2.0"
+
 "@mapbox/rehype-prism@^0.8.0":
   version "0.8.0"
   resolved "https://registry.yarnpkg.com/@mapbox/rehype-prism/-/rehype-prism-0.8.0.tgz#c8b6eafb041a97e143fcbf93dd4e319ab0c131d6"
@@ -1810,7 +1817,7 @@ axe-core@^4.6.2:
   resolved "https://registry.yarnpkg.com/axe-core/-/axe-core-4.8.1.tgz#6948854183ee7e7eae336b9877c5bafa027998ea"
   integrity sha512-9l850jDDPnKq48nbad8SiEelCv4OrUWrKab/cPj0GScVg6cb6NbCCt/Ulk26QEq5jP9NnGr04Bit1BHyV6r5CQ==
 
-axios@^1.5.0:
+axios@^1.2.0, axios@^1.5.0:
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/axios/-/axios-1.5.0.tgz#f02e4af823e2e46a9768cfc74691fdd0517ea267"
   integrity sha512-D4DdjDo5CY50Qms0qGQTTw6Q44jl7zRwY7bthds06pUGfChBCTcQs+N743eFWGEd6pRTMd6A+I87aWyFV5wiZQ==
