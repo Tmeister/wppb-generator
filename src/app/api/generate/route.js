@@ -155,10 +155,3 @@ const trackDownload = async () => {
     event_label: 'download',
   })
 }
-
-const generateTempDir = () => {
-  return path.join(
-    cwd,
-    Date.now().toString() + '-' + Math.random().toString().substring(2),
-  )
-}

@@ -2,9 +2,18 @@
 
 import Script from 'next/script'
 import * as gtag from '@/lib/gtag.js'
+import { usePathname, useSearchParams } from 'next/navigation'
+import { useEffect } from 'react'
 
 const GoogleAnalytics = () => {
-  console.log(gtag.GA_TRACKING_ID)
+  // We need to sent the pageview event manually on page change
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
+
+  useEffect(() => {
+    const url = `${pathname}${searchParams.toString()}`
+    gtag.pageview(url)
+  }, [pathname, searchParams])
 
   return (
     <>

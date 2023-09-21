@@ -1,4 +1,3 @@
-import { async } from 'replace/bin/shared-options'
 import fetch from 'node-fetch'
 
 const GA_MEASUREMENT_ID = 'G-7PPWKH5DX1'
