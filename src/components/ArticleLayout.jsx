@@ -55,7 +55,6 @@ export function ArticleLayout({ article, children }) {
             <Prose className="mt-8" data-mdx-content>
               {children}
             </Prose>
-            here
           </article>
         </div>
       </div>

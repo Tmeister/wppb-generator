@@ -35,7 +35,7 @@ function Article({ article }) {
 export const metadata = {
   title: 'Articles',
   description:
-    'All of my long-form thoughts on programming, leadership, product design, and more, collected in chronological order.',
+    'Dive into the world of WordPress craftsmanship and web development, coupled with personal insights into the freelancer lifestyle. A haven for developers and freelancers alike, seeking guidance, tips, and a community understanding the freelance journey.',
 }
 
 export default async function ArticlesIndex() {
@@ -43,8 +43,8 @@ export default async function ArticlesIndex() {
 
   return (
     <SimpleLayout
-      title="Writing on software design, company building, and the aerospace industry."
-      intro="All of my long-form thoughts on programming, leadership, product design, and more, collected in chronological order."
+      title="WordPress craftsmanship, Web Development and reflections on the life of a freelancer."
+      intro="Dive into the world of WordPress craftsmanship and web development, coupled with personal insights into the freelancer lifestyle. A haven for developers and freelancers alike, seeking guidance, tips, and a community understanding the freelance journey."
     >
       <div className="md:border-l md:border-zinc-100 md:pl-6 md:dark:border-zinc-700/40">
         <div className="flex max-w-3xl flex-col space-y-16">
