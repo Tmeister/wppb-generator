@@ -79,19 +79,19 @@ You **cannot**:
 
 Examples of usage **allowed** by the license:
 
-- Creating a website for your company
-- Creating a website or web application for a client that will be owned by that client
-- Creating a commercial SaaS application (like an invoicing app for example) where end users have to pay a fee to use the application
-- Creating a commercial self-hosted web application that is sold to end users for a one-time fee
-- Creating a web application where the primary purpose is clearly not to simply re-distribute the components or templates (like a conference organization app that uses the components or a template for its UI for example) that is free and open source, where the source code is publicly available
+- Creating a website for your company.
+- Creating a website or web application for a client that will be owned by that client.
+- Creating a commercial SaaS application (like an invoicing app for example) where end users have to pay a fee to use the application.
+- Creating a commercial self-hosted web application that is sold to end users for a one-time fee.
+- Creating a web application where the primary purpose is clearly not to simply re-distribute the components or templates (like a conference organization app that uses the components or a template for its UI for example) that is free and open source, where the source code is publicly available.
 
 Examples of use **not allowed** by the license:
 
-- Creating a repository of your favorite Tailwind UI components or template (or derivatives based on Tailwind UI components or templates) and publishing it publicly
-- Creating a React or Vue version of Tailwind UI and making it available either for sale or for free
-- Creating a "website builder" project where end users can build their own websites using components or templates included with or derived from Tailwind UI
-- Creating a theme or template using the components or templates and making it available either for sale or for free
-- Creating an admin panel tool (like [Laravel Nova](https://nova.laravel.com/) or [ActiveAdmin](https://activeadmin.info/)) that is made available either for sale or for free
+- Creating a repository of your favorite Tailwind UI components or template (or derivatives based on Tailwind UI components or templates) and publishing it publicly.
+- Creating a React or Vue version of Tailwind UI and making it available either for sale or for free.
+- Creating a "website builder" project where end users can build their own websites using components or templates included with or derived from Tailwind UI.
+- Creating a theme or template using the components or templates and making it available either for sale or for free.
+- Creating an admin panel tool (like [Laravel Nova](https://nova.laravel.com/) or [ActiveAdmin](https://activeadmin.info/)) that is made available either for sale or for free.
 - Creating any End Product that is not the sole property of either your company or a client of your company. For example your employees/contractors can't use your company Tailwind UI license to build their own websites or side projects.
 
 ### Team License Definitions

@@ -1,12 +1,15 @@
 const fieldClasses =
-  'block w-full appearance-none rounded-md border border-gray-200 px-3 py-2 text-gray-900 placeholder-gray-400 focus:border-blue-400 focus:bg-white focus:outline-none focus:ring-blue-400 sm:text-sm bg-slate-50'
+  'block w-full min-w-0 flex-auto appearance-none rounded-md border border-zinc-900/10 bg-white px-3 py-[calc(theme(spacing.2)-1px)] shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-teal-500 focus:outline-none focus:ring-4 focus:ring-teal-500/10 dark:border-zinc-700 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:placeholder:text-zinc-500 dark:focus:border-teal-400 dark:focus:ring-teal-400/10'
 
 const alternativeClasses =
-  'block w-full appearance-none rounded-none rounded-r-md border border-gray-200 px-3 py-2 text-gray-900 placeholder-gray-400 focus:border-blue-400 focus:bg-white focus:outline-none focus:ring-blue-400 sm:text-sm bg-slate-50'
+  'block w-full appearance-none rounded-none rounded-r-md min-w-0 flex-auto appearance-none rounded-md border border-zinc-900/10 bg-white px-3 py-[calc(theme(spacing.2)-1px)] shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-teal-500 focus:outline-none focus:ring-4 focus:ring-teal-500/10 dark:border-zinc-700 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:placeholder:text-zinc-500 dark:focus:border-teal-400 dark:focus:ring-teal-400/10'
 
 function Label({ id, children }) {
   return (
-    <label htmlFor={id} className="mb-2 block text-sm font-medium text-gray-500">
+    <label
+      htmlFor={id}
+      className="mb-2 block text-sm font-medium text-gray-500"
+    >
       {children}
     </label>
   )
@@ -36,7 +39,11 @@ export function TextField({
         {...register(name, { onChange: (e) => callback(name, e) })}
         {...props}
       />
-      {error && !alternative && <span className="mt-2 inline-block text-xs text-red-600">{error.message}</span>}
+      {error && !alternative && (
+        <span className="mt-2 inline-block text-xs text-red-600">
+          {error.message}
+        </span>
+      )}
     </div>
   )
 }
