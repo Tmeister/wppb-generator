@@ -19,7 +19,9 @@ export default function Form(props) {
     pluginDescription: Yup.string().nullable(),
     authorName: Yup.string().required('Author name is required'),
     authorUri: Yup.string().required('Author Uri is required'),
-    authorEmail: Yup.string().email('Please enter a valid email').required('Author email is required'),
+    authorEmail: Yup.string()
+      .email('Please enter a valid email')
+      .required('Author email is required'),
   })
 
   const {
@@ -48,7 +50,10 @@ export default function Form(props) {
       },
     }
 
-    const response = await fetch('/api/generate', { method: 'POST', body: JSON.stringify(data) })
+    const response = await fetch('/api/generate', {
+      method: 'POST',
+      body: JSON.stringify(data),
+    })
     const blob = await response.blob()
     // Hacky wat to force the download
     const a = document.createElement('a')
@@ -63,7 +68,7 @@ export default function Form(props) {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="mb-10 w-full space-y-5 divide-y divide-slate-200 rounded-lg border border-slate-200 px-10 py-5 shadow-lg lg:mb-0 lg:mr-10 lg:w-6/12"
+      className="mb-10 w-full space-y-5 divide-y divide-slate-200  rounded-lg border border-slate-200 px-10 py-5 shadow-lg lg:mb-0 lg:mr-10 lg:w-6/12 dark:border-zinc-700/40 dark:divide-zinc-700/40 dark:bg-zinc-700/[0.3] "
     >
       <div className="space-y-8">
         <div className="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
@@ -92,7 +97,7 @@ export default function Form(props) {
         </div>
         <div className="mt-1 w-full sm:mt-0">
           <div className="flex rounded-md shadow-sm">
-            <span className="inline-flex items-center rounded-l-md border border-r-0 border-gray-300 bg-gray-50 px-3 text-gray-500 sm:text-sm">
+            <span className="inline-flex items-center rounded-l-md border border-r-0 border-gray-300 bg-gray-50 px-3 text-gray-500 sm:text-sm dark:border-zinc-700 dark:bg-zinc-700/[0.3] dark:text-zinc-500 dark:placeholder:text-zinc-500 dark:focus:border-teal-400 dark:focus:ring-teal-400/10">
               https://
             </span>
             <TextField
@@ -110,7 +115,9 @@ export default function Form(props) {
             />
           </div>
           {errors.pluginUri && (
-            <span className="mt-2 inline-block text-xs text-red-600">{errors.pluginUri.message}</span>
+            <span className="mt-2 inline-block text-xs text-red-600">
+              {errors.pluginUri.message}
+            </span>
           )}
         </div>
         <div className="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
@@ -139,7 +146,7 @@ export default function Form(props) {
         </div>
         <div className="mt-1 w-full sm:mt-0">
           <div className="flex rounded-md shadow-sm">
-            <span className="inline-flex items-center rounded-l-md border border-r-0 border-gray-300 bg-gray-50 px-3 text-gray-500 sm:text-sm">
+            <span className="inline-flex items-center rounded-l-md border border-r-0 border-gray-300 bg-gray-50 px-3 text-gray-500 sm:text-sm dark:border-zinc-700 dark:bg-zinc-700/[0.3] dark:text-zinc-500 dark:placeholder:text-zinc-500 dark:focus:border-teal-400 dark:focus:ring-teal-400/10">
               https://
             </span>
             <TextField
@@ -157,13 +164,15 @@ export default function Form(props) {
             />
           </div>
           {errors.authorUri && (
-            <span className="mt-2 inline-block text-xs text-red-600">{errors.authorUri.message}</span>
+            <span className="mt-2 inline-block text-xs text-red-600">
+              {errors.authorUri.message}
+            </span>
           )}
         </div>
         <div>
           <textarea
             placeholder="Plugin Short Description"
-            className="block w-full appearance-none rounded-md border border-gray-200 bg-slate-50 px-3 py-2 text-gray-900 placeholder-gray-400 focus:border-blue-400 focus:bg-white focus:outline-none focus:ring-blue-400 sm:text-sm"
+            className="block w-full min-w-0 flex-auto appearance-none rounded-md border border-zinc-900/10 bg-white px-3 py-[calc(theme(spacing.2)-1px)] shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-teal-500 focus:outline-none focus:ring-4 focus:ring-teal-500/10 dark:border-zinc-700 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:placeholder:text-zinc-500 dark:focus:border-teal-400 dark:focus:ring-teal-400/10 sm:text-sm"
             {...register('pluginDescription')}
             onChange={(e) => handleChange('pluginDescription', e)}
           ></textarea>
@@ -182,7 +191,14 @@ export default function Form(props) {
               fill="none"
               viewBox="0 0 24 24"
             >
-              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+              <circle
+                className="opacity-25"
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                strokeWidth="4"
+              ></circle>
               <path
                 className="opacity-75"
                 fill="currentColor"

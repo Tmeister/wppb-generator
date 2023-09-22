@@ -1,32 +1,23 @@
 import Link from 'next/link'
 import clsx from 'clsx'
 
-const baseStyles = {
-  solid:
-    'group inline-flex items-center justify-center rounded-full py-2 px-4 text-sm font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2',
-  outline: 'group inline-flex ring-1 items-center justify-center rounded-full py-2 px-4 text-sm focus:outline-none',
-}
-
 const variantStyles = {
-  solid: {
-    slate:
-      'bg-slate-900 text-white hover:bg-slate-700 hover:text-slate-100 active:bg-slate-800 active:text-slate-300 focus-visible:outline-slate-900',
-    blue: 'bg-blue-600 text-white hover:text-slate-100 hover:bg-blue-500 active:bg-blue-800 active:text-blue-100 focus-visible:outline-blue-600',
-    orange:
-      'bg-orange-600 text-white hover:text-slate-100 hover:bg-orange-500 active:bg-orange-800 active:text-orange-100 focus-visible:outline-orange-600',
-    white:
-      'bg-white text-slate-900 hover:bg-blue-50 active:bg-blue-200 active:text-slate-600 focus-visible:outline-white',
-  },
-  outline: {
-    slate:
-      'ring-slate-200 text-slate-700 hover:text-slate-900 hover:ring-slate-300 active:bg-slate-100 active:text-slate-600 focus-visible:outline-blue-600 focus-visible:ring-slate-300',
-    white:
-      'ring-slate-700 text-white hover:ring-slate-500 active:ring-slate-700 active:text-slate-400 focus-visible:outline-white',
-  },
+  primary:
+    'bg-zinc-800 font-semibold text-zinc-100 hover:bg-zinc-700 active:bg-zinc-800 active:text-zinc-100/70 dark:bg-zinc-700 dark:hover:bg-zinc-600 dark:active:bg-zinc-700 dark:active:text-zinc-100/70',
+  secondary:
+    'bg-zinc-50 font-medium text-zinc-900 hover:bg-zinc-100 active:bg-zinc-100 active:text-zinc-900/60 dark:bg-zinc-800/50 dark:text-zinc-300 dark:hover:bg-zinc-800 dark:hover:text-zinc-50 dark:active:bg-zinc-800/50 dark:active:text-zinc-50/70',
 }
 
-export function Button({ variant = 'solid', color = 'slate', className, href, ...props }) {
-  className = clsx(baseStyles[variant], variantStyles[variant][color], className)
+export function Button({ variant = 'primary', className, ...props }) {
+  className = clsx(
+    'inline-flex items-center gap-2 justify-center rounded-md py-2 px-3 text-sm outline-offset-2 transition active:transition-none',
+    variantStyles[variant],
+    className,
+  )
 
-  return href ? <Link href={href} className={className} {...props} /> : <button className={className} {...props} />
+  return typeof props.href === 'undefined' ? (
+    <button className={className} {...props} />
+  ) : (
+    <Link className={className} {...props} />
+  )
 }
