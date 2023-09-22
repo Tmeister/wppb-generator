@@ -7,6 +7,7 @@ import { AppContext } from '@/app/providers'
 import { Container } from '@/components/Container'
 import { Prose } from '@/components/Prose'
 import { formatDate } from '@/lib/formatDate'
+import { BioCard } from './BioCard'
 
 function ArrowLeftIcon(props) {
   return (
@@ -56,6 +57,7 @@ export function ArticleLayout({ article, children }) {
               {children}
             </Prose>
           </article>
+          <BioCard />
         </div>
       </div>
     </Container>
