@@ -40,3 +40,4 @@ source
 tmp
 .vscode
 .env
+public/

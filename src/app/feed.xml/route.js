@@ -10,13 +10,13 @@ export async function GET(req) {
   }
 
   let author = {
-    name: 'Spencer Sharp',
-    email: 'spencer@planetaria.tech',
+    name: 'Enrique Chavez',
+    email: 'tmeister@gmail.com',
   }
 
   let feed = new Feed({
     title: author.name,
-    description: 'Your blog description',
+    description: 'WPPB - WordPress Plugin Boilerplate',
     author,
     id: siteUrl,
     link: siteUrl,

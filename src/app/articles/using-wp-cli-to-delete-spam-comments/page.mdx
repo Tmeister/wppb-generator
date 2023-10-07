@@ -1,0 +1,102 @@
+import { ArticleLayout } from '@/components/ArticleLayout'
+import Image from 'next/image'
+import HeroImage from './terminal-guy.jpg'
+
+export const article = {
+  author: 'Enrique Chavez',
+  date: '2023-10-06',
+  title: 'Using WP CLI to delete spam comments',
+  description:
+    "Explore deleting spam comments on WordPress using WP CLI in this series' first post. Learn WP CLI installation and commands to clean up spam, paving the way for a tidy site. A practical guide for beginners eyeing efficient WordPress management.",
+}
+
+export const metadata = {
+  title: article.title,
+  description: article.description,
+}
+
+export default (props) => <ArticleLayout article={article} {...props} />
+
+<Image src={HeroImage} alt="" />
+
+We all know that WordPress is a powerhouse in website creation. Its flexibility and robustness have made it a favorite among novices and seasoned web developers. However, like any popular platform, WordPress sites are often targeted by spammers who litter the comment sections with unwanted messages; this is annoying as a site owner or maintainer and deleting these span comments is a tedious process if we do it inside the WordPress Admin UI.
+
+But [WP CLI](https://wp-cli.org/) (Command Line Interface) is here to save the day. With WP CLI, managing spam comments becomes a breeze. This post will delve into using WP CLI to eliminate those pesky spam comments, ensuring your website is clean.
+
+## A Dive into WP CLI
+
+If you are unaware, WP CLI is the command-line tool for WordPress. It allows you to interact with your site from the terminal, a haven for many developers. This tool simplifies various WordPress tasks, making managing your site less of a chore, and this will be the first post of a series about WP CLI.
+
+## Installation
+
+Before you can command your site to obedience, you must install WP CLI. Most reputable WordPress hosting already provides SSH access and WP CLI by default, but if you need to install it on your local environment or in a hosting that is not installed, [This is the official way to do it](https://wp-cli.org/#installing).
+
+To be sure that everything is working, type on your terminal:
+
+```bash
+$ wp --info
+```
+
+You should see a similar output similar to the one below.
+
+```txt
+OS:     Darwin 23.0.0 Darwin Kernel Version 23.0.0: Fri Sep 15 14:41:43 PDT 2023; root:xnu-10002.1.13~1/RELEASE_ARM64_T6000 arm64
+Shell:  /bin/zsh
+PHP binary:     /Users/tmeister/Library/Application Support/Herd/bin/php81
+PHP version:    8.1.24
+php.ini used:
+MySQL binary:   /opt/homebrew/bin/mysql
+MySQL version:  mysql from 11.0.2-MariaDB, client 15.2 for osx10.18 (arm64) using  EditLine wrapper
+SQL modes:      STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION
+WP-CLI root dir:        phar://wp-cli.phar/vendor/wp-cli/wp-cli
+WP-CLI vendor dir:      phar://wp-cli.phar/vendor
+WP_CLI phar path:       /Users/tmeister/Code/Personal/wp-api-jwt-auth
+WP-CLI packages dir:
+WP-CLI cache dir:       /Users/tmeister/.wp-cli/cache
+WP-CLI global config:
+WP-CLI project config:
+WP-CLI version: 2.8.1
+```
+
+## Preparing the Ground
+
+Before you unleash WP CLI, ensure you have a recent site backup. It's a safety net, just in case things go south.
+
+You can create a full database backup using:
+
+```bash
+$ wp db export
+```
+
+Yeah!! That's it; that command will create an SQL file with all the database information. I'll write more deeply about this command in future posts.
+
+## The Execution
+
+Now, it's time to show those spam comments the door. Open your terminal, navigate to your WordPress directory, and type the following command:
+
+```bash
+$ wp comment delete $(wp comment list --status=spam --format=ids)
+```
+
+This command tells WP CLI to list all spam comments then delete them. Simple, yet powerful but let's break down this command into its two main components for better understanding:
+
+Inner Command `(wp comment list --status=spam --format=ids)`:
+
+**wp comment list**: This is the WP CLI command to list comments on your WordPress site.
+
+**--status=spam**: This flag filters the list to only include comments marked as spam.
+
+**--format=ids**: This flag formats the output to only show the IDs of the spam comments, instead of the full details.
+
+Outer Command `wp comment delete`:
+
+**wp comment delete**: This is the WP CLI command to delete comments.
+
+**$(...)**: This syntax is used to execute the inner command and pass its output (the IDs of spam comments) as arguments to the outer command.
+
+So, in essence, this command operates in two steps:
+
+1. It first fetches the IDs of all comments marked as spam.
+2. It then passes these IDs to the wp comment delete command, which deletes all these spam comments from your WordPress site.
+
+WP CLI is a robust tool that empowers you to manage your WordPress site efficiently. Deleting spam comments is just one of the many tasks WP CLI simplifies. It's time-saving, effective, and a must-have for every WordPress administrator.
