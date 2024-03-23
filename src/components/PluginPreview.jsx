@@ -24,14 +24,14 @@ export function PluginPreview(props) {
             <span>Version 1.0.0</span>
             <span className="text-slate-400">|</span>
             <Link
-              href={`https://${props.data.authorUri || ''}`}
+              href={`https://${props.data.authorUri || 'example.com'}`}
               className="text-blue-600"
             >
               By {props.data.authorName}
             </Link>
             <span className="text-slate-400">|</span>
             <Link
-              href={`https://${props.data.pluginUri || ''}`}
+              href={`https://${props.data.pluginUri || 'example.com'}`}
               className="text-blue-600"
             >
               View Details
