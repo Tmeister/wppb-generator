@@ -6,8 +6,8 @@ export function PluginPreview(props) {
   return (
     <section className="w-full lg:w-6/12">
       <div className="rounded-lg border border-slate-200 shadow-lg dark:border-zinc-700 ">
-        <header className="flex items-center rounded-t-lg border-b bg-slate-50 px-10 py-5 text-slate-600 dark:bg-zinc-700/[0.3] dark:text-white dark:border-zinc-700 ">
-          <div className="h-6 w-6 rounded border border-slate-300 bg-white dark:bg-zinc-700/[0.3] dark:border-zinc-700"></div>
+        <header className="flex items-center rounded-t-lg border-b bg-slate-50 px-10 py-5 text-slate-600 dark:border-zinc-700 dark:bg-zinc-700/[0.3] dark:text-white ">
+          <div className="h-6 w-6 rounded border border-slate-300 bg-white dark:border-zinc-700 dark:bg-zinc-700/[0.3]"></div>
           <div className="ml-3 font-semibold ">Plugin</div>
         </header>
         <main className="space-y-3 px-10 py-5 dark:bg-zinc-700/[0.3] ">
@@ -24,14 +24,14 @@ export function PluginPreview(props) {
             <span>Version 1.0.0</span>
             <span className="text-slate-400">|</span>
             <Link
-              href={`https://${props.data.authorUri}`}
+              href={`https://${props.data.authorUri || ''}`}
               className="text-blue-600"
             >
               By {props.data.authorName}
             </Link>
             <span className="text-slate-400">|</span>
             <Link
-              href={`https://${props.data.pluginUri}`}
+              href={`https://${props.data.pluginUri || ''}`}
               className="text-blue-600"
             >
               View Details

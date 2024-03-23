@@ -68,10 +68,10 @@ export default function Form(props) {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="mb-10 w-full space-y-5 divide-y divide-slate-200  rounded-lg border border-slate-200 px-10 py-5 shadow-lg lg:mb-0 lg:mr-10 lg:w-6/12 dark:border-zinc-700/40 dark:divide-zinc-700/40 dark:bg-zinc-700/[0.3] "
+      className="mb-10 w-full space-y-5 divide-y divide-slate-200  rounded-lg border border-slate-200 px-10 py-5 shadow-lg dark:divide-zinc-700/40 dark:border-zinc-700/40 dark:bg-zinc-700/[0.3] lg:mb-0 lg:mr-10 lg:w-6/12 "
     >
       <div className="space-y-8">
-        <div className="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
+        <div className="mt-6 grid grid-cols-1 gap-x-4 gap-y-6 sm:grid-cols-6">
           <div className="sm:col-span-3">
             <TextField
               id="plugin-name"
@@ -97,7 +97,7 @@ export default function Form(props) {
         </div>
         <div className="mt-1 w-full sm:mt-0">
           <div className="flex rounded-md shadow-sm">
-            <span className="inline-flex items-center rounded-l-md border border-r-0 border-gray-300 bg-gray-50 px-3 text-gray-500 sm:text-sm dark:border-zinc-700 dark:bg-zinc-700/[0.3] dark:text-zinc-500 dark:placeholder:text-zinc-500 dark:focus:border-teal-400 dark:focus:ring-teal-400/10">
+            <span className="inline-flex items-center rounded-l-md border border-r-0 border-gray-300 bg-gray-50 px-3 text-gray-500 dark:border-zinc-700 dark:bg-zinc-700/[0.3] dark:text-zinc-500 dark:placeholder:text-zinc-500 dark:focus:border-teal-400 dark:focus:ring-teal-400/10 sm:text-sm">
               https://
             </span>
             <TextField
@@ -120,7 +120,7 @@ export default function Form(props) {
             </span>
           )}
         </div>
-        <div className="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
+        <div className="mt-6 grid grid-cols-1 gap-x-4 gap-y-6 sm:grid-cols-6">
           <div className="sm:col-span-3">
             <TextField
               id="author-name"
@@ -146,7 +146,7 @@ export default function Form(props) {
         </div>
         <div className="mt-1 w-full sm:mt-0">
           <div className="flex rounded-md shadow-sm">
-            <span className="inline-flex items-center rounded-l-md border border-r-0 border-gray-300 bg-gray-50 px-3 text-gray-500 sm:text-sm dark:border-zinc-700 dark:bg-zinc-700/[0.3] dark:text-zinc-500 dark:placeholder:text-zinc-500 dark:focus:border-teal-400 dark:focus:ring-teal-400/10">
+            <span className="inline-flex items-center rounded-l-md border border-r-0 border-gray-300 bg-gray-50 px-3 text-gray-500 dark:border-zinc-700 dark:bg-zinc-700/[0.3] dark:text-zinc-500 dark:placeholder:text-zinc-500 dark:focus:border-teal-400 dark:focus:ring-teal-400/10 sm:text-sm">
               https://
             </span>
             <TextField
@@ -186,7 +186,7 @@ export default function Form(props) {
         >
           {loading && (
             <svg
-              className="mr-3 -ml-1 h-5 w-5 animate-spin text-white"
+              className="-ml-1 mr-3 h-5 w-5 animate-spin text-white"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
