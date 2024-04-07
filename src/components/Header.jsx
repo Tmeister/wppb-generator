@@ -126,6 +126,7 @@ function MobileNavigation(props) {
                 <MobileNavItem href="/about">About</MobileNavItem>
                 <MobileNavItem href="/articles">Articles</MobileNavItem>
                 <MobileNavItem href="/uses">Uses</MobileNavItem>
+                <MobileNavItem href="https://wpcli.dev?utm_source=wppb&utm_medium=topnav&utm_campaign=launch">WP Cli Docs</MobileNavItem>
               </ul>
             </nav>
           </Popover.Panel>
@@ -165,6 +166,7 @@ function DesktopNavigation(props) {
         <NavItem href="/about">About</NavItem>
         <NavItem href="/articles">Articles</NavItem>
         <NavItem href="/uses">Uses</NavItem>
+        <NavItem href="https://wpcli.dev?utm_source=wppb&utm_medium=topnav&utm_campaign=launch">WP Cli Docs</NavItem>
       </ul>
     </nav>
   )
