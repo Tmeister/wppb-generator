@@ -1,0 +1,36 @@
+
+import { ArticleLayout } from '@/components/ArticleLayout'
+import Image from 'next/image'
+import HeroImage from './wp-cli-dev-hero.jpg'
+
+export const article = {
+  author: 'Enrique Chavez',
+  date: '2024-03-23',
+  title: 'Introcuding WP CLI Dev: The unofficial WP CLI docs.',
+  description:
+    'An alternative to the official WP-CLI documentation, offering a modern and user-friendly guide to mastering the command-line interface for WordPress.'
+}
+
+export const metadata = {
+  title: article.title,
+  description: article.description,
+}
+
+export default (props) => <ArticleLayout article={article} {...props} />
+
+<Image src={HeroImage} alt="" />
+
+Hey there! 
+
+I want to talk about something I've been working on this weekend that you may find helpful, especially if you're into WordPress. It's called [WP CLI Dev](https://wpcli.dev), and my little (another) side project is about to get better, easy-to-navigate WP CLI docs. 
+
+If you've ever used [WP CLI](https://wp-cli.org/), you know it's a powerhouse for managing WordPress sites through the command line. It's significantly improved how I manage everything from client projects to my own personal sites. But, as much as I love WP CLI, I hit a snag—finding the info I needed in the official documentation was a bit of a hassle. It's packed with great info, but digging through it to find exactly what you need can be like looking for a needle in a haystack.
+
+That's precisely why WP CLI Dev was born. I envisioned a more accessible, easy-to-navigate companion to the official WP CLI documentation. It's designed to be straightforward, helping us find what we need without the runaround.
+
+WP CLI Dev pulls in the most recent WP CLI Official documentation. But here's the kicker: I'm using the [Syntax](https://tailwindui.com/templates/syntax) template from [TailwindUI](https://tailwindui.com/) to display the information. In my opinion, it's a highly efficient way to present the commands and documentation. This setup not only makes the content look clean and readable but also makes it super easy to find exactly what you're looking for, whether you're troubleshooting or trying out new commands.
+
+I focused on a few key areas with WP CLI Dev: smarter search features to find commands and solutions instantly and an enhanced design for a better overall experience. It's about reducing the time you spend looking for the right info.
+
+I'm really excited about [WP CLI Dev](https://wpcli.dev), and I think it can make a difference in how we all use WP CLI, at least for me. I'd love for you to check it out and [let me know what you think](https://x.com/Tmeister).
+
