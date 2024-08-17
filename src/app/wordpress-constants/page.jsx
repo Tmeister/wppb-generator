@@ -25,7 +25,7 @@ export default function WordPressConstants() {
         </p>
         <pre>
           <code class="language-php">
-            // Enable debugging
+            &#47;&#47; Enable debugging
             <br />
             define( &#x27;WP_DEBUG&#x27;, true );
             <br />
@@ -34,7 +34,7 @@ export default function WordPressConstants() {
             define( &#x27;WP_DEBUG_DISPLAY&#x27;, false );
             <br />
             <br />
-            // Customize the content directory
+            &#47;&#47; Customize the content directory
             <br />
             define( &#x27;WP_CONTENT_DIR&#x27;, dirname(__FILE__) .
             &#x27;/custom-content&#x27; );
@@ -43,17 +43,17 @@ export default function WordPressConstants() {
             &#x27;https://example.com/custom-content&#x27; );
             <br />
             <br />
-            // Enforce SSL for admin and logins
+            &#47;&#47; Enforce SSL for admin and logins
             <br />
             define( &#x27;FORCE_SSL_ADMIN&#x27;, true );
             <br />
             <br />
-            // Disable automatic updates
+            &#47;&#47; Disable automatic updates
             <br />
             define( &#x27;AUTOMATIC_UPDATER_DISABLED&#x27;, true );
             <br />
             <br />
-            // Increase memory limit
+            &#47;&#47; Increase memory limit
             <br />
             define( &#x27;WP_MEMORY_LIMIT&#x27;, &#x27;256M&#x27; );
           </code>
