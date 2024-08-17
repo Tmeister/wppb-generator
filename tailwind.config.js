@@ -1,4 +1,5 @@
 const typographyPlugin = require('@tailwindcss/typography')
+const formsPlugin = require('@tailwindcss/forms')
 
 const typographyStyles = require('./typography')
 
@@ -6,7 +7,7 @@ const typographyStyles = require('./typography')
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   darkMode: 'class',
-  plugins: [typographyPlugin],
+  plugins: [typographyPlugin, formsPlugin],
   theme: {
     extend: {
       colors: {
