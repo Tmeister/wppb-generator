@@ -11,7 +11,7 @@ import Image from 'next/image'
 
 async function getTopContributors() {
   const API_BASE_URL = process.env.NEXT_PUBLIC_PLUGINS_API_BASE_URL
-  const api_url = `${API_BASE_URL}/contributors/prolific?per_page=5`
+  const api_url = `${API_BASE_URL}/authors/prolific?per_page=5`
   const res = await fetch(api_url, {
     next: { revalidate: 3600 },
   })
@@ -20,17 +20,17 @@ async function getTopContributors() {
   return res.json()
 }
 
-export async function TopContributors() {
+export async function TopAuthors() {
   const response = await getTopContributors()
 
   return (
     <Card className="rounded-sm">
       <CardHeader>
-        <CardTitle className="text-xl">Top Contributors</CardTitle>
+        <CardTitle className="text-xl">Top Authors</CardTitle>
         <CardDescription className="leading-normal">
-          These accounts have contributed to WordPress, working on their own
-          plugins or collaborating on plugins developed by others in the
-          official repository.
+          These accounts have published plugins in the WordPress repository.
+          Unlike contributors who may work on various plugins, authors are the
+          primary creators and maintainers of their own plugins.
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -48,7 +48,7 @@ export async function TopContributors() {
                   {contributor.avatar_url ? (
                     <Image
                       src={contributor.avatar_url}
-                      alt={`Avatar of ${contributor.display_name}`}
+                      alt={`Avatar of ${contributor.name}`}
                       width={32}
                       height={32}
                       className="rounded-full object-cover"
