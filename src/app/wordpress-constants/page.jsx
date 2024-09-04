@@ -11,7 +11,7 @@ export const metadata = {
 export default function WordPressConstants() {
   return (
     <SimpleLayout title="WordPress Constants: Powerful for Customization and Optimization">
-      <Prose>
+      <Prose className="max-w-none">
         <p>
           WordPress offers multiple ways to configure and customize your site,
           from the admin panel to hooks (filters and actions). However, one of
