@@ -68,7 +68,7 @@ export default function Form(props) {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="mb-10 w-full space-y-5 divide-y divide-slate-200  rounded-lg border border-slate-200 px-10 py-5 shadow-lg dark:divide-zinc-700/40 dark:border-zinc-700/40 dark:bg-zinc-700/[0.3] lg:mb-0 lg:mr-10 lg:w-6/12 "
+      className="mb-10 w-full space-y-5 divide-y divide-slate-200 rounded border border-slate-200 px-10 py-5 shadow-lg dark:divide-zinc-700/40 dark:border-zinc-700/40 dark:bg-zinc-700/[0.3] lg:mb-0 lg:mr-10 lg:w-6/12"
     >
       <div className="space-y-8">
         <div className="mt-6 grid grid-cols-1 gap-x-4 gap-y-6 sm:grid-cols-6">
