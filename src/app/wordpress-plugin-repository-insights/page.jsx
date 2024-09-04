@@ -30,7 +30,7 @@ export default async function WordPressConstants() {
         <div className="prose mb-16 max-w-none">
           <p>
             The WordPress Plugin Repository stands as a cornerstone of the
-            world's most popular content management system, offering a vast
+            world&apos;s most popular content management system, offering a vast
             array of tools that extend and enhance WordPress functionality. The
             WordPress Plugin Repository Insights page serves as a new resource
             for developers, website owners, and WordPress enthusiasts alike,
