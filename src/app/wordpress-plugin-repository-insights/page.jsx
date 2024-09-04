@@ -14,9 +14,7 @@ export const metadata = {
 
 async function getPluginsTotal() {
   const baseUrl = process.env.NEXT_PUBLIC_PLUGINS_API_BASE_URL
-  const res = await fetch(`${baseUrl}/plugins/total`, {
-    next: { revalidate: 86400 },
-  })
+  const res = await fetch(`${baseUrl}/plugins/total`)
   if (!res.ok) {
     throw new Error('Failed to fetch plugins total')
   }
@@ -69,11 +67,30 @@ export default async function WordPressConstants() {
               href="https://codex.wordpress.org/WordPress.org_API#Plugins"
               target="_blank"
               rel="noopener noreferrer"
+              className="text-wppblue-500"
             >
               WordPress Plugin Repository API{' '}
             </a>
             and is <strong>updated daily</strong>.
           </p>
+
+          <p className="">
+            This is the first iteration of the page. I plan to add more
+            information over time and evaluating if this could be converted into
+            a service where user can access and query the data if you are
+            interested or want to suggest charts or information you would like
+            to see, please let me know{' '}
+            <a
+              href="https://x.com/tmeister"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-wppblue-500"
+            >
+              @Tmeister
+            </a>
+            .
+          </p>
+
           <p>
             As of today, there are{' '}
             <strong>{pluginsData.total_plugins.toLocaleString()}</strong>{' '}
@@ -86,7 +103,6 @@ export default async function WordPressConstants() {
                 hour: 'numeric',
                 minute: 'numeric',
                 hour12: true,
-                timeZone: 'America/Mexico_City',
               })}
             </strong>{' '}
             (GMT-6).
