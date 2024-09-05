@@ -1,0 +1,82 @@
+import { ArticleLayout } from '@/components/ArticleLayout'
+import Image from 'next/image'
+import HeroImage from './terminal.jpg'
+
+export const article = {
+  author: 'Enrique Chavez',
+  date: '2024-09-05',
+  title: 'WordPress Plugin Boilerplate CLI: The WPPB Generator on Your Terminal',
+  description:
+    "Discover how WordPress Plugin Boilerplate CLI streamlines plugin creation, saves time, and ensures best practices for WordPress developers.",
+}
+
+export const metadata = {
+  title: article.title,
+  description: article.description,
+}
+
+export default (props) => <ArticleLayout article={article} {...props} />
+
+<Image src={HeroImage} alt="" />
+
+# WordPress Plugin Boilerplate CLI: The WPPB Generator on Your Terminal
+
+WordPress developers often face the challenge of setting up new plugin projects quickly while adhering to best practices. That's why the WPPB generator site was created in the first place: to speed up this process.
+
+Over time, terminal tooling has developed, expanded, and been widely adopted. The WordPress Plugin Boilerplate CLI addresses this need by providing a command-line tool that automates the creation of WordPress plugins based on the WordPress Plugin Boilerplate structure from our old friend [wppb.me](https://wppb.me).
+
+This CLI tool accelerates the process even more. With it, there's no need to download, unzip, and move the folder to the plugins directory. Just a single command, and you'll have your plugin ready to go.
+
+## What WordPress Plugin Boilerplate CLI Does
+
+This CLI tool generates new WordPress plugins using a standardized structure. It allows developers to:
+
+1. Create plugins based on the WordPress Plugin Boilerplate
+2. Customize plugin details (name, description, author information)
+3. Adhere to WordPress coding standards
+4. Reduce initial plugin setup time
+
+## How to Use WordPress Plugin Boilerplate CLI
+
+To start using the tool:
+
+1. Install via Composer:
+   ```
+   composer global require tmeister/wppb-cli
+   ```
+
+2. Ideally, from your `wp-content/plugins` directory, run the following command:
+   ```
+   wppb new
+   ```
+
+3. Follow the prompts to input your plugin details
+
+## Benefits of Using WordPress Plugin Boilerplate CLI
+
+1. **Consistency**: All plugins follow the same structure
+2. **Time-Saving**: Reduces setup time for each new plugin project
+3. **Standards Compliance**: Starts with a foundation that follows WordPress development standards
+4. **Customization**: Allows tailoring of the generated plugin to specific needs
+
+## Technical Details
+
+- Requires Composer for installation
+- Compatible with PHP 8.1 and above
+- Uses Symfony Console and Laravel Prompts
+
+## Current Status and Future Development
+
+I've currently tested the tool on Mac systems. I'm in the process of testing it on Linux and Windows. I welcome contributions and feedback from users on all platforms to help improve the tool's compatibility and functionality across different operating systems.
+
+## How to Contribute
+
+Developers interested in improving WordPress Plugin Boilerplate CLI can submit [Pull Requests](https://github.com/tmeister/wppb-cli) for enhancements or bug fixes. The project is open-source and licensed under GPL v2 or later, as always.
+
+## Origins and Acknowledgments
+
+This project builds upon the work of Enrique Chavez ([@Tmeister](https://x.com/tmeister)), who created the original WordPress Plugin Boilerplate Generator. It aims to bring the convenience of that web-based tool to the command line.
+
+By streamlining the initial setup process, I've designed WordPress Plugin Boilerplate CLI to allow developers like myself to focus more on creating plugin functionality and less on boilerplate code. Whether you're an experienced WordPress developer like me or just starting out, I believe this tool can help make your plugin development process more efficient.
+
+Photo by [Berat Bozkurt](https://unsplash.com/@beratbozkurt0?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/photos/a-laptop-computer-sitting-on-top-of-a-wooden-table-YmwZrfblRHg?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)
