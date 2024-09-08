@@ -7,7 +7,7 @@ Code Style and Structure
 - Prefer iteration and modularization over code duplication.
 - Use descriptive variable names with auxiliary verbs (e.g., isLoading, hasError).
 - Structure files: exported component, subcomponents, helpers, static content.
-- never use TypeScript or create a .ts files use js and jsx 
+- never use TypeScript or create a .ts files use js and jsx
 
 Standard.js Rules
 
@@ -35,7 +35,7 @@ React Best Practices
 
 - Use functional components with prop-types for type checking.
 - Use the "function" keyword for component definitions.
-- Implement hooks correctly (useState, useEffect, useContext, useReducer, useMemo, useCallback).
+- Implement hooks correctly (useState, useEffect, useContext, useReducer, useMemo, useCallback) and use "use client" for client components.
 - Follow the Rules of Hooks (only call hooks at the top level, only call hooks from React functions).
 - Create custom hooks to extract reusable component logic.
 - Use React.memo() for component memoization when appropriate.
