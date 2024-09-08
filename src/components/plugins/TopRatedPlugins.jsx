@@ -96,7 +96,7 @@ export async function TopRatedPlugins() {
                   </a>
                 </TableCell>
                 <TableCell className="text-center">
-                  {plugin.active_installs.toLocaleString()}
+                  {plugin.max_active_installs.toLocaleString()}
                 </TableCell>
                 <TableCell className="text-center">
                   {plugin.current_num_ratings.toLocaleString()}
