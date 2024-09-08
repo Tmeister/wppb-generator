@@ -28,7 +28,7 @@ export default function RootLayout({ children }) {
         <Providers>
           <div className="flex w-full">
             <Layout>
-              <GoogleAnalytics />
+              {process.env.VERCEL_ENV === 'production' && <GoogleAnalytics />}
               {children}
             </Layout>
           </div>
