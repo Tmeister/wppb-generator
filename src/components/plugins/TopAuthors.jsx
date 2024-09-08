@@ -36,12 +36,12 @@ export async function TopAuthors() {
       <CardContent>
         <div>
           {response &&
-            response.data?.map((contributor) => (
+            response.data?.map((contributor, index) => (
               <Link
                 href={contributor.profile_url}
                 target="_blank"
                 rel="noopener noreferrer"
-                key={contributor.id}
+                key={index}
                 className="flex items-center rounded p-3 hover:bg-slate-50"
               >
                 <div className="flex items-center gap-2">

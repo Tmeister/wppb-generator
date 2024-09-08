@@ -15,7 +15,6 @@ export const metadata = {
 async function getPluginsTotal() {
   const baseUrl = process.env.NEXT_PUBLIC_PLUGINS_API_BASE_URL
   const res = await fetch(`${baseUrl}/plugins/total`, {
-    cache: 'no-store',
     next: { revalidate: 0 },
   })
   if (!res.ok) {
