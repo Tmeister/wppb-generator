@@ -4,6 +4,7 @@ import { SimpleLayout } from '@/components/SimpleLayout'
 import { PluginsAdditions } from '@/components/plugins/PluginsAdditions'
 import { TopRatedPlugins } from '@/components/plugins/TopRatedPlugins'
 import { RecentPopular } from '@/components/plugins/RecentPopular'
+import { PluginSearch } from '@/components/plugins/PluginSearch'
 
 export const metadata = {
   title:
@@ -111,6 +112,7 @@ export default async function WordPressConstants() {
           </p>
         </div>
         <div className="space-y-16">
+          <PluginSearch />
           <PluginsAdditions />
           <TopRatedPlugins />
           <RecentPopular />
