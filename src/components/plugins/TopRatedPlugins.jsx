@@ -1,4 +1,3 @@
-import { memo } from 'react'
 import {
   Table,
   TableBody,
@@ -15,29 +14,7 @@ import {
   CardDescription,
 } from '@/components/ui/card'
 
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from '@/components/ui/tooltip'
-
-const StarRating = memo(function StarRating({ rating }) {
-  return (
-    <TooltipProvider>
-      <Tooltip>
-        <TooltipTrigger>
-          {Array.from({ length: 5 }, (_, i) => (
-            <span className="text-wppblue-500" key={i}>
-              {i < Math.round(rating / 20) ? '★' : '☆'}
-            </span>
-          ))}
-        </TooltipTrigger>
-        <TooltipContent>Actual rating: {rating / 20} / 5</TooltipContent>
-      </Tooltip>
-    </TooltipProvider>
-  )
-})
+import { StarRating } from '@/components/StarRating'
 
 async function getTopRatedPlugins() {
   const baseUrl = process.env.NEXT_PUBLIC_PLUGINS_API_BASE_URL
