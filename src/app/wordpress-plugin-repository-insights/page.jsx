@@ -112,7 +112,6 @@ export default async function WordPressConstants() {
           </p>
         </div>
         <div className="space-y-16">
-          <PluginSearch />
           <PluginsAdditions />
           <TopRatedPlugins />
           <RecentPopular />

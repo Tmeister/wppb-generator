@@ -29,7 +29,7 @@ function HistoricalDownloadsChart({ downloads }) {
       month: 'short',
       day: 'numeric',
     }),
-    downloads: item.download_count,
+    downloads: item.daily_downloads,
   }))
 
   const minDownloads = Math.min(...data.map((item) => item.downloads))
