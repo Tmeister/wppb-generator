@@ -66,6 +66,7 @@ UI and Styling
   - Use Tailwind for common utilities and layout.
   - Use Stylus modules for complex, component-specific styles.
   - Never use the @apply directive
+  - Always add the import for the component you are using
 
 Performance Optimization
 
