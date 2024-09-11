@@ -3,10 +3,9 @@
 import Script from 'next/script'
 import * as gtag from '@/lib/gtag.js'
 import { usePathname, useSearchParams } from 'next/navigation'
-import { useEffect } from 'react'
+import { useEffect, Suspense } from 'react'
 
-const GoogleAnalytics = () => {
-  // We need to sent the pageview event manually on page change
+function GoogleAnalyticsContent() {
   const pathname = usePathname()
   const searchParams = useSearchParams()
 
@@ -15,6 +14,10 @@ const GoogleAnalytics = () => {
     gtag.pageview(url)
   }, [pathname, searchParams])
 
+  return null
+}
+
+const GoogleAnalytics = () => {
   return (
     <>
       <Script
@@ -26,15 +29,18 @@ const GoogleAnalytics = () => {
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: `
-                      window.dataLayer = window.dataLayer || [];
-                      function gtag(){dataLayer.push(arguments);}
-                      gtag('js', new Date());
-                      gtag('config', '${gtag.GA_TRACKING_ID}', {
-                      page_path: window.location.pathname,
-                      });
-                    `,
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${gtag.GA_TRACKING_ID}', {
+              page_path: window.location.pathname,
+            });
+          `,
         }}
       />
+      <Suspense fallback={null}>
+        <GoogleAnalyticsContent />
+      </Suspense>
     </>
   )
 }
