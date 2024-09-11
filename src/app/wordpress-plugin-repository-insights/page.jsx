@@ -4,7 +4,7 @@ import { SimpleLayout } from '@/components/SimpleLayout'
 import { PluginsAdditions } from '@/components/plugins/PluginsAdditions'
 import { TopRatedPlugins } from '@/components/plugins/TopRatedPlugins'
 import { RecentPopular } from '@/components/plugins/RecentPopular'
-import { PluginSearch } from '@/components/plugins/PluginSearch'
+// import { PluginSearch } from '@/components/plugins/PluginSearch'
 
 export const metadata = {
   title:
