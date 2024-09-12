@@ -1,5 +1,6 @@
 'use client'
 
+import { useMemo } from 'react'
 import {
   Card,
   CardContent,
@@ -9,13 +10,17 @@ import {
 } from '@/components/ui/card'
 import { StarRating } from '@/components/StarRating'
 import HistoricalDownloadsChart from '@/components/plugins/HistoricalDownloadChart'
-
 import { CalendarDays, Download, Users } from 'lucide-react'
 
 export function PluginDetails({ plugin }) {
-  // Implement the plugin details view here
+  // Memoize the HistoricalDownloadsChart
+  const memoizedChart = useMemo(
+    () => <HistoricalDownloadsChart downloads={plugin.downloads} />,
+    [plugin.downloads],
+  )
+
   return (
-    <Card className="rounded-sm ">
+    <Card className="rounded-sm">
       <CardHeader>
         <CardTitle className="flex items-center justify-between text-xl">
           <h2 className="max-w-[920px] truncate" title={plugin.name}>
@@ -48,9 +53,7 @@ export function PluginDetails({ plugin }) {
             value={plugin.human_active_installs}
           />
         </div>
-        <div className="mt-6">
-          <HistoricalDownloadsChart downloads={plugin.downloads} />
-        </div>
+        <div className="mt-6">{memoizedChart}</div>
       </CardContent>
     </Card>
   )

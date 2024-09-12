@@ -23,14 +23,18 @@ const chartConfig = {
 }
 
 function HistoricalDownloadsChart({ downloads }) {
-  console.log(downloads)
-  const data = downloads.map((item) => ({
-    date: new Date(item.date).toLocaleDateString('en-US', {
-      month: 'short',
-      day: 'numeric',
-    }),
-    downloads: item.daily_downloads,
-  }))
+  const data = downloads.map((item) => {
+    const date = new Date(item.date)
+    date.setDate(date.getDate() + 2) // Add two day to correct the date
+
+    return {
+      date: date.toLocaleDateString('en-US', {
+        month: 'short',
+        day: 'numeric',
+      }),
+      downloads: item.daily_downloads,
+    }
+  })
 
   const minDownloads = Math.min(...data.map((item) => item.downloads))
 
