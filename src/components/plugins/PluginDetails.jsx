@@ -2,14 +2,15 @@
 
 import { useMemo } from 'react'
 import {
-  Card,
   CardContent,
   CardHeader,
   CardTitle,
   CardDescription,
 } from '@/components/ui/card'
+
 import { StarRating } from '@/components/StarRating'
 import HistoricalDownloadsChart from '@/components/plugins/HistoricalDownloadChart'
+import { HistoricalRatingsChart } from '@/components/plugins/HistoricalRatingsChart'
 import { CalendarDays, Download, Users } from 'lucide-react'
 
 export function PluginDetails({ plugin }) {
@@ -19,9 +20,15 @@ export function PluginDetails({ plugin }) {
     [plugin.downloads],
   )
 
+  // Memoize the HistoricalRatingsChart
+  const memoizedHistoricalRatingsChart = useMemo(
+    () => <HistoricalRatingsChart plugin={plugin} />,
+    [plugin.ratings],
+  )
+
   return (
-    <Card className="rounded-sm">
-      <CardHeader>
+    <div className="my-8 rounded-sm border-t border-slate-200">
+      <CardHeader className="px-0">
         <CardTitle className="flex items-center justify-between text-xl">
           <h2 className="max-w-[920px] truncate" title={plugin.name}>
             {plugin.name}
@@ -30,7 +37,7 @@ export function PluginDetails({ plugin }) {
         </CardTitle>
         <CardDescription>{plugin.short_description}</CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent className="px-0">
         <div className="grid grid-cols-2 gap-6 md:grid-cols-4">
           <MetadataItem
             icon={<CalendarDays className="h-4 w-4" />}
@@ -54,8 +61,9 @@ export function PluginDetails({ plugin }) {
           />
         </div>
         <div className="mt-6">{memoizedChart}</div>
+        <div className="mt-6">{memoizedHistoricalRatingsChart}</div>
       </CardContent>
-    </Card>
+    </div>
   )
 }
 

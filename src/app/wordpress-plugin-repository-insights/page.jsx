@@ -4,7 +4,8 @@ import { SimpleLayout } from '@/components/SimpleLayout'
 import { PluginsAdditions } from '@/components/plugins/PluginsAdditions'
 import { TopRatedPlugins } from '@/components/plugins/TopRatedPlugins'
 import { RecentPopular } from '@/components/plugins/RecentPopular'
-// import { PluginSearch } from '@/components/plugins/PluginSearch'
+import { PluginSearch } from '@/components/plugins/PluginSearch'
+import { HistoricalRatingsChart } from '@/components/plugins/HistoricalRatingsChart'
 
 export const metadata = {
   title:
@@ -112,9 +113,10 @@ export default async function WordPressConstants() {
           </p>
         </div>
         <div className="space-y-16">
-          <PluginsAdditions />
-          <TopRatedPlugins />
-          <RecentPopular />
+          <PluginSearch />
+          {/* <PluginsAdditions /> */}
+          {/* <TopRatedPlugins /> */}
+          {/* <RecentPopular /> */}
           <div className="grid gap-6 sm:grid-cols-2">
             <TopAuthors />
             <TopContributors />
