@@ -74,13 +74,13 @@ const CustomTooltip = ({ active, payload, label }) => {
   return null
 }
 
-export function HistoricalRatingsChart({ plugin }) {
+export function HistoricalRatingsChart({ ratings: ratings }) {
   const [chartData, setChartData] = useState([])
   const [yAxisDomain, setYAxisDomain] = useState([0, 'auto'])
 
   useEffect(() => {
-    if (plugin && plugin.ratings) {
-      const formattedData = plugin.ratings.map((rating) => ({
+    if (ratings) {
+      const formattedData = ratings.map((rating) => ({
         date: new Date(rating.date).toLocaleDateString('en-US', {
           month: 'short',
           day: 'numeric',
@@ -99,7 +99,7 @@ export function HistoricalRatingsChart({ plugin }) {
       // Set the Y-axis domain to go from 0 to 110% of the maximum value
       setYAxisDomain([0, Math.ceil(maxTotal * 1.1)])
     }
-  }, [plugin])
+  }, [ratings])
 
   return (
     <Card className="rounded-sm">

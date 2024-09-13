@@ -22,7 +22,7 @@ export function PluginDetails({ plugin }) {
 
   // Memoize the HistoricalRatingsChart
   const memoizedHistoricalRatingsChart = useMemo(
-    () => <HistoricalRatingsChart plugin={plugin} />,
+    () => <HistoricalRatingsChart ratings={plugin.ratings} />,
     [plugin.ratings],
   )
 
