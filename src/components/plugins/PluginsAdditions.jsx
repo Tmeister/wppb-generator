@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect, useMemo, useCallback } from 'react'
-import { Area, AreaChart, CartesianGrid, XAxis, YAxis } from 'recharts'
+import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from 'recharts'
 
 import {
   Card,
@@ -104,8 +104,8 @@ const formatDate = (date, timeFrame) => {
 }
 
 export function PluginsAdditions() {
-  const [timeFrame, setTimeFrame] = useState('year')
-  const [limit, setLimit] = useState('all')
+  const [timeFrame, setTimeFrame] = useState('day')
+  const [limit, setLimit] = useState('60')
   const [chartData, setChartData] = useState([])
 
   // Memoize limitOptions to avoid recalculation on every render
@@ -131,6 +131,7 @@ export function PluginsAdditions() {
               ? item.date
               : item[timeFrame],
         pluginCount: item.plugin_count,
+        downloads: item.downloads, // Make sure this field is available in the API response
       }))
       setChartData(formattedData)
     } catch (error) {
@@ -139,7 +140,9 @@ export function PluginsAdditions() {
   }, [timeFrame, limit])
 
   useEffect(() => {
-    setLimit(timeFrame === 'year' ? 'all' : getLimitOptions(timeFrame)[0].value)
+    if (timeFrame !== 'day') {
+      setLimit(getLimitOptions(timeFrame)[0].value)
+    }
   }, [timeFrame])
 
   useEffect(() => {
@@ -153,21 +156,7 @@ export function PluginsAdditions() {
         config={chartConfig}
         className="aspect-auto h-[250px] w-full"
       >
-        <AreaChart data={chartData}>
-          <defs>
-            <linearGradient id="fillPluginCount" x1="0" y1="0" x2="0" y2="1">
-              <stop
-                offset="5%"
-                stopColor="hsl(var(--primary))"
-                stopOpacity={0.8}
-              />
-              <stop
-                offset="95%"
-                stopColor="hsl(var(--primary))"
-                stopOpacity={0.1}
-              />
-            </linearGradient>
-          </defs>
+        <BarChart data={chartData}>
           <CartesianGrid vertical={false} />
           <XAxis
             dataKey="date"
@@ -178,10 +167,7 @@ export function PluginsAdditions() {
             angle={-45}
             textAnchor="end"
             height={70}
-            tickFormatter={(value) => {
-              const formatted = formatDate(value, timeFrame)
-              return formatted
-            }}
+            tickFormatter={(value) => formatDate(value, timeFrame)}
           />
           <YAxis
             tickLine={false}
@@ -190,24 +176,20 @@ export function PluginsAdditions() {
             tickFormatter={(value) => value.toLocaleString()}
           />
           <ChartTooltip
-            cursor={false}
+            cursor={{ fill: 'rgba(0, 0, 0, 0.1)' }}
             content={
               <ChartTooltipContent
-                indicator="dot"
-                formatter={(value) => `${value} plugins added`}
-                labelFormatter={(value, opts) => {
-                  return formatDate(opts?.[0]?.payload?.date, timeFrame)
-                }}
+                indicator="bar"
+                formatter={(value, name, props) => [
+                  <div key="plugins">{`${value} plugins added`}</div>,
+                  <br />,
+                  <div key="date">{`Date: ${formatDate(props.payload.date, timeFrame)}`}</div>,
+                ]}
               />
             }
           />
-          <Area
-            dataKey="pluginCount"
-            type="monotone"
-            fill="url(#fillPluginCount)"
-            stroke="hsl(var(--primary))"
-          />
-        </AreaChart>
+          <Bar dataKey="pluginCount" fill="hsl(var(--primary))" />
+        </BarChart>
       </ChartContainer>
     ),
     [chartData, timeFrame],

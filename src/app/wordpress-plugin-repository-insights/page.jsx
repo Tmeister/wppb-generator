@@ -113,14 +113,8 @@ export default async function WordPressConstants() {
           </p>
         </div>
         <div className="space-y-16">
+          <PluginsAdditions />
           <PluginSearch />
-          {/* <PluginsAdditions /> */}
-          {/* <TopRatedPlugins /> */}
-          {/* <RecentPopular /> */}
-          <div className="grid gap-6 sm:grid-cols-2">
-            <TopAuthors />
-            <TopContributors />
-          </div>
         </div>
       </div>
     </SimpleLayout>
