@@ -182,7 +182,7 @@ export function PluginsAdditions() {
                 indicator="bar"
                 formatter={(value, name, props) => [
                   <div key="plugins">{`${value} plugins added`}</div>,
-                  <br />,
+                  <br key="br" />,
                   <div key="date">{`Date: ${formatDate(props.payload.date, timeFrame)}`}</div>,
                 ]}
               />
